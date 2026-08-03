@@ -1,0 +1,23 @@
+{
+  "name": "Party Crown",
+  "author": "@example",
+  "version": "1.0",
+  "effects": [
+    {
+      "type": "bloom",
+      "intensity": 0.35
+    },
+    {
+      "type": "grain",
+      "intensity": 0.2
+    }
+  ],
+  "overlays": [
+    {
+      "image": "crown.png",
+      "anchor": "forehead",
+      "scale": 1.3,
+      "offsetY": 0.1
+    }
+  ]
+}

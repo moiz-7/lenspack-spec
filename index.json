@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "name": "Sunset Fade",
+      "author": "@lenspack-spec",
+      "summary": "Warm lifted shadows and muted blues \u2014 the starter community look.",
+      "fileName": "Sunset Fade.cube",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/examples/Sunset%20Fade.cube",
+      "sha256": "7bd9c1a7b37fafc1542fd613ea5dee81accfba921320b33b9552e6f9cd16311c"
+    }
+  ]
+}
