@@ -1,49 +1,68 @@
 # Publishing `lenspack-spec`
 
-The app's Community Looks gallery reads `index.json` from this repository. Until it's
-published, the remote fetch 404s — the gallery still works (it ships bundled content since
-R20), it just can't offer anything beyond the built-in look.
-
-Run these **from your machine**, in order. Nothing here is destructive; the only outward-
-facing step is the final `push`.
-
-## 1. One-time: install the GitHub CLI (optional but easiest)
+**Status: published.** The repo is live at
+<https://github.com/moiz-7/lenspack-spec> and the app's index URL returns 200:
 
 ```bash
-brew install gh && gh auth login
+curl -s -o /dev/null -w "%{http_code}\n" \
+  https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/index.json
 ```
 
-If you'd rather not use `gh`, create an empty repo named `lenspack-spec` in the GitHub web
-UI (no README, no .gitignore — this folder already has content) and skip to step 3.
+This document is now about **maintaining** it. The original publishing steps are kept at the
+bottom for anyone forking the format.
 
-## 2. Make it its own repository
+---
 
-`lenspack-spec/` is currently tracked inside the Lens repo. It should be standalone so
-outside contributors can clone the format without the app source.
+## Repository layout — read this before moving files
+
+`lenspack-spec/` is a **standalone repository** that also lives inside the Lens working tree
+at `Lens/lenspack-spec/`. That is deliberate: the Python validator must stay next to the
+Swift loader it mirrors, because the two encode the same limits and drift silently when
+separated.
+
+To make that safe, the Lens repo **gitignores** `lenspack-spec/` and does not track it.
+
+> ⚠️ **Corrected 2026-08.** An earlier version of this file told you to run `git init` inside
+> `lenspack-spec/` while those files were still tracked by the Lens repo. That was wrong: a
+> nested `.git` inside a tracked folder makes Git convert the folder to a **gitlink** on the
+> next `git add -A`, silently dropping the file contents from the parent repo. If you are
+> setting this up fresh, untrack it in the parent *first* (`git rm -r --cached lenspack-spec`
+> plus a `.gitignore` entry), then initialise here.
+
+## Making a change
+
+Edit here, then commit and push from **this** folder — not from the Lens repo:
 
 ```bash
 cd /Users/moizsaeed/Documents/Developer/Lens/lenspack-spec
-git init -b main
-git add -A
-git commit -m "LensPack format spec v1-v5, validator, and starter packs"
+git add -A && git commit -m "..." && git push
 ```
 
-## 3. Create the remote and push
+**Whenever you change a limit, change it in both places.** The validator and the app's loader
+must agree, or a pack that validates will fail to load (or worse, load when it shouldn't):
 
-With `gh` (creates the repo and pushes in one step):
+| Concept | Validator | App |
+|---|---|---|
+| Cube size / file cap | `validator/validate_lenspack.py` (`CUBE_SIZES`, `MAX_CUBE_BYTES`) | `LensPackManager` (`allowedCubeSizes`, `maxCubeFileBytes`) |
+| Overlay pixel cap, frame cap, fps range | `MAX_OVERLAY_PIXELS`, frame/fps checks | `maxOverlayPixels`, frame `prefix(23)`, fps clamp |
+| Effect nodes | `EFFECTS` | `RecipeEffectSpec.Kind` |
+| Anchors / blendshapes / requirements | `ANCHORS`, `BLENDSHAPES`, `REQUIREMENTS` | `FaceOverlaySpec.Anchor`, `BlendshapeTriggerSpec.Shape`, `FilterCapabilities.knownRequirements` |
 
-```bash
-gh repo create lenspack-spec --public --source=. --remote=origin --push
-```
+A parity test that fails when these diverge is the right long-term fix; until it exists, this
+table is the checklist.
 
-Without `gh` (after creating the empty repo in the web UI):
+## Adding a look to the in-app gallery
 
-```bash
-git remote add origin https://github.com/<your-username>/lenspack-spec.git
-git push -u origin main
-```
+1. Put the `.cube` in `examples/`.
+2. `python3 validator/validate_lenspack.py "examples/Your Look.cube"` — it prints the sha256.
+3. Add an entry to `index.json` with that sha256 (the app verifies it before installing).
+4. Commit and push. The app picks it up on the next gallery open — no app release needed.
 
-## 4. Point the app at it
+---
+
+## Appendix — first-time publishing (for forks)
+
+### Point the app at it
 
 `MarketplaceViewModel.defaultIndexURL` currently reads:
 
@@ -62,23 +81,17 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 
 `200` means the gallery will now merge remote looks on top of the bundled one.
 
-## 5. Decide what the Lens repo does with this folder
+### Decide what the parent repo does with this folder
 
-Two reasonable options — pick one deliberately:
+**Decided for this project (2026-08):** the parent repo *gitignores* `lenspack-spec/` and
+this repo is the only place it is tracked — see "Repository layout" above. The working copy
+stays inside the Lens tree so the validator and the app's loader sit side by side.
 
-- **Keep the copy** (simplest): `lenspack-spec/` stays committed in the Lens repo as a
-  vendored reference, and the published repo is the canonical one. Risk: they drift.
-- **Remove it from the Lens repo** once published, and add a note pointing at the URL:
-  ```bash
-  cd /Users/moizsaeed/Documents/Developer/Lens
-  git rm -r --cached lenspack-spec && echo "lenspack-spec/" >> .gitignore
-  git commit -m "Move lenspack-spec to its own repository"
-  ```
-  Risk: the validator is no longer next to the app it mirrors, so version skew is easier
-  to miss. **Recommendation: keep the copy** until the format stops changing, because the
-  validator and the app's loader must stay in lockstep and they currently change together.
+The alternative (vendoring the files in the parent and publishing via `git subtree push`)
+is also valid and keeps a single history, but it cannot coexist with a nested `.git` —
+pick one, never both.
 
-## 6. Growing it beyond one look
+### Growing it beyond one look
 
 The gallery is only interesting with content. The cheapest path to a real catalogue:
 
