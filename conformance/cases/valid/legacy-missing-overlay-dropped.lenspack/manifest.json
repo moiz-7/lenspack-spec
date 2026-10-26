@@ -1,0 +1,10 @@
+{
+  "lut": "look.cube",
+  "name": "Half",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "image": "gone.png"
+    }
+  ]
+}

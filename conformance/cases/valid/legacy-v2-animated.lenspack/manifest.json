@@ -1,0 +1,14 @@
+{
+  "name": "Sparkle",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "fps": 12,
+      "frames": [
+        "b.png",
+        "c.png"
+      ],
+      "image": "a.png"
+    }
+  ]
+}

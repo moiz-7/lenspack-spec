@@ -1,0 +1,11 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "id": "Sunset Fade",
+  "lenspack": 4,
+  "name": "Case",
+  "version": "1.0.0"
+}

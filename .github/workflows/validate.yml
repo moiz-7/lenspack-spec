@@ -1,0 +1,29 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest==8.3.3
+      - name: Conformance cases and zip rules
+        run: python -m pytest -q tests
+      - name: Every gallery pack and example validates
+        run: |
+          for p in examples/*.cube examples/*.lenspack packs/*.lenspack dist/*.lenspack; do
+            [ -e "$p" ] || continue
+            python validator/validate_lenspack.py "$p"
+          done
+      - name: index.json and dist/ are rebuilt from packs/
+        run: python tools/build_index.py --check

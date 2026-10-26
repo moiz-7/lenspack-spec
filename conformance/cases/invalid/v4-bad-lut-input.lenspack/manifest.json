@@ -1,0 +1,10 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "lut": {
+    "file": "look.cube",
+    "input": "rec2020"
+  },
+  "name": "Case",
+  "version": "1.0.0"
+}

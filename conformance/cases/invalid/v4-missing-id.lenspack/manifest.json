@@ -1,0 +1,10 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "lenspack": 4,
+  "name": "No Id",
+  "version": "1.0.0"
+}

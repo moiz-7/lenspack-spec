@@ -1,0 +1,71 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "triggers": [
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "blink",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    }
+  ],
+  "version": "1.0.0"
+}

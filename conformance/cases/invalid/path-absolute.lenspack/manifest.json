@@ -1,0 +1,9 @@
+{
+  "name": "Abs",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "image": "/etc/hosts"
+    }
+  ]
+}

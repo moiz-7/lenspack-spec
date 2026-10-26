@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "type": "elevation"
+    },
+    {
+      "position": "bottomRight",
+      "type": "speed"
+    }
+  ],
+  "effects": [
+    {
+      "intensity": 0.3,
+      "type": "fade"
+    }
+  ],
+  "name": "Ski Day"
+}

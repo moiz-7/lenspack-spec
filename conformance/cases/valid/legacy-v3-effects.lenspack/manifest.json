@@ -1,0 +1,16 @@
+{
+  "effects": [
+    {
+      "intensity": 0.4,
+      "type": "bloom"
+    },
+    {
+      "type": "grain"
+    },
+    {
+      "intensity": 1,
+      "type": "teleport"
+    }
+  ],
+  "name": "Film"
+}

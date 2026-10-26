@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "type": "speed"
+    },
+    {
+      "type": "speed"
+    },
+    {
+      "type": "speed"
+    },
+    {
+      "type": "speed"
+    },
+    {
+      "type": "speed"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "version": "1.0.0"
+}

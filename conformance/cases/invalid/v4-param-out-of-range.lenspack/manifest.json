@@ -1,0 +1,14 @@
+{
+  "effects": [
+    {
+      "params": {
+        "size": 0.5
+      },
+      "type": "grain"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "version": "1.0.0"
+}

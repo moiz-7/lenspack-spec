@@ -1,0 +1,12 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "thumbnail": "t.png",
+  "version": "1.0.0"
+}

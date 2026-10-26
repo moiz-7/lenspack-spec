@@ -1,0 +1,15 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "required": [
+    "effects",
+    "teleport"
+  ],
+  "version": "1.0.0"
+}

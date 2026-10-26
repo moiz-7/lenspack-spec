@@ -1,0 +1,11 @@
+{
+  "name": "Crown",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "image": "a.png",
+      "offsetY": 0.1,
+      "scale": 1.3
+    }
+  ]
+}

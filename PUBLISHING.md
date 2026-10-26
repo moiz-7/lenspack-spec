@@ -38,27 +38,27 @@ cd /Users/moizsaeed/Documents/Developer/Lens/lenspack-spec
 git add -A && git commit -m "..." && git push
 ```
 
-**Whenever you change a limit, change it in both places.** The validator and the app's loader
-must agree, or a pack that validates will fail to load (or worse, load when it shouldn't):
+**Limits live in one file: `conformance/limits.json`.** The validator reads it at run time,
+and the app's `LensPackConformanceTests` asserts its own constants and enums equal it and runs
+every case in `conformance/cases/` through the app's `LensPackValidator`. To change a limit:
 
-| Concept | Validator | App |
-|---|---|---|
-| Cube size / file cap | `validator/validate_lenspack.py` (`CUBE_SIZES`, `MAX_CUBE_BYTES`) | `LensPackManager` (`allowedCubeSizes`, `maxCubeFileBytes`) |
-| Overlay pixel cap, frame cap, fps range | `MAX_OVERLAY_PIXELS`, frame/fps checks | `maxOverlayPixels`, frame `prefix(23)`, fps clamp |
-| Effect nodes | `EFFECTS` | `RecipeEffectSpec.Kind` |
-| Anchors / blendshapes / requirements | `ANCHORS`, `BLENDSHAPES`, `REQUIREMENTS` | `FaceOverlaySpec.Anchor`, `BlendshapeTriggerSpec.Shape`, `FilterCapabilities.knownRequirements` |
-
-A parity test that fails when these diverge is the right long-term fix; until it exists, this
-table is the checklist.
+1. Edit `conformance/limits.json` (and `schema/lenspack-4.schema.json` if the shape changes).
+2. Add or update a case in `tools/gen_conformance.py`, run it, then `python3 -m pytest tests`.
+3. Commit and push here, then vendor the folder into the app: copy `conformance/` to
+   `Lens/LensTests/Conformance/conformance.bundle/` and write this repo's commit sha into
+   `Lens/LensTests/Conformance/VERSION`. The app's parity test fails until its constants match.
 
 ## Adding a look to the in-app gallery
 
-1. Put the `.cube` in `examples/`.
-2. `python3 validator/validate_lenspack.py "examples/Your Look.cube"` — it prints the sha256.
-3. Add an entry to `index.json` with that sha256 (the app verifies it before installing).
-4. Commit and push. The app picks it up on the next gallery open — no app release needed.
+- **A full pack:** add a v4 folder at `packs/<author>.<slug>.lenspack/` (manifest with `id`,
+  semver `version` and `license`), then run `python3 tools/build_index.py`. It validates the
+  pack, writes a reproducible zip to `dist/` and regenerates `index.json`.
+- **A bare cube:** put the `.cube` in `examples/`, add a version-1 style entry to `index.json`
+  (name, author, summary, fileName, url, any sha256), then run `python3 tools/build_index.py`
+  to fill in the real sha256, size and version-2 fields.
 
----
+Commit and push. The app picks it up on the next gallery open, no app release needed. CI
+(`.github/workflows/validate.yml`) fails if `index.json` or `dist/` is stale.
 
 ## Appendix — first-time publishing (for forks)
 

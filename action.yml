@@ -1,0 +1,16 @@
+name: Validate LensPack
+description: Validates .cube files, .lenspack folders and .lenspack zips against the LensPack spec.
+inputs:
+  path:
+    description: A file, folder or glob to validate.
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        status=0
+        for p in ${{ inputs.path }}; do
+          python3 "${{ github.action_path }}/validator/validate_lenspack.py" "$p" || status=1
+        done
+        exit $status

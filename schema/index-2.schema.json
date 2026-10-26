@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moiz-7/lenspack-spec/schema/index-2.schema.json",
+  "title": "LensPack gallery index, version 2",
+  "description": "index.json. Every entry keeps the version-1 fields (name, author, summary, fileName, url, sha256) so app builds that read version 1 keep working: they install entries whose fileName ends in .cube and skip the rest. Version-2 readers also use the fields below. The whole file is at most 256 KB.",
+  "type": "object",
+  "required": ["version", "packs"],
+  "properties": {
+    "version": {"enum": [1, 2]},
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "author", "summary", "fileName", "url", "sha256"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "author": {"type": "string"},
+          "summary": {"type": "string"},
+          "fileName": {"type": "string", "pattern": "^[^/\\\\.][^/\\\\]{0,254}\\.(cube|lenspack)$", "description": "A bare file name, never a path."},
+          "url": {"type": "string", "pattern": "^https://"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "requires": {"type": "array", "items": {"type": "string"}},
+          "id": {"type": "string"},
+          "version": {"type": "string"},
+          "size": {"type": "integer", "minimum": 1, "maximum": 26214400},
+          "thumbnail": {"type": "string", "pattern": "^https://"},
+          "license": {"type": "string"},
+          "kind": {"enum": ["cube", "pack"]},
+          "lenspack": {"type": "integer", "minimum": 1}
+        }
+      }
+    }
+  }
+}

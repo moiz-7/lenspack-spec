@@ -1,0 +1,264 @@
+{
+  "invalid/bad-cube.lenspack": {
+    "codes": [
+      "lut.invalid"
+    ],
+    "result": "invalid"
+  },
+  "invalid/bad-json.lenspack": {
+    "codes": [
+      "manifest.json"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-animated-frame.lenspack": {
+    "codes": [
+      "budget.framePixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-data.lenspack": {
+    "codes": [
+      "budget.data"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-effects.lenspack": {
+    "codes": [
+      "budget.effects"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-frames.lenspack": {
+    "codes": [
+      "budget.frames"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-image-pixels.lenspack": {
+    "codes": [
+      "budget.imagePixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-legacy-pack-pixels.lenspack": {
+    "codes": [
+      "budget.packPixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-overlay-count.lenspack": {
+    "codes": [
+      "budget.overlays"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-pack-pixels.lenspack": {
+    "codes": [
+      "budget.packPixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-triggers.lenspack": {
+    "codes": [
+      "budget.triggers"
+    ],
+    "result": "invalid"
+  },
+  "invalid/empty.lenspack": {
+    "codes": [
+      "content.empty"
+    ],
+    "result": "invalid"
+  },
+  "invalid/lenspack-string.lenspack": {
+    "codes": [
+      "manifest.lenspack"
+    ],
+    "result": "invalid"
+  },
+  "invalid/needs-newer-feature.lenspack": {
+    "codes": [
+      "required.unknown"
+    ],
+    "result": "needs-newer"
+  },
+  "invalid/needs-newer-format.lenspack": {
+    "codes": [
+      "format.newer"
+    ],
+    "result": "needs-newer"
+  },
+  "invalid/no-manifest.lenspack": {
+    "codes": [
+      "manifest.missing"
+    ],
+    "result": "invalid"
+  },
+  "invalid/no-name.lenspack": {
+    "codes": [
+      "manifest.name"
+    ],
+    "result": "invalid"
+  },
+  "invalid/path-absolute.lenspack": {
+    "codes": [
+      "path.unsafe"
+    ],
+    "result": "invalid"
+  },
+  "invalid/path-backslash.lenspack": {
+    "codes": [
+      "path.unsafe"
+    ],
+    "result": "invalid"
+  },
+  "invalid/path-dotdot-inside.lenspack": {
+    "codes": [
+      "path.unsafe"
+    ],
+    "result": "invalid"
+  },
+  "invalid/path-too-deep.lenspack": {
+    "codes": [
+      "path.unsafe"
+    ],
+    "result": "invalid"
+  },
+  "invalid/path-traversal.lenspack": {
+    "codes": [
+      "path.unsafe"
+    ],
+    "result": "invalid"
+  },
+  "invalid/trigger-image-too-large.lenspack": {
+    "codes": [
+      "budget.imagePixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-id.lenspack": {
+    "codes": [
+      "manifest.id"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-license.lenspack": {
+    "codes": [
+      "manifest.license"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-localized.lenspack": {
+    "codes": [
+      "manifest.localized"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-lut-input.lenspack": {
+    "codes": [
+      "lut.space"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-version.lenspack": {
+    "codes": [
+      "manifest.version"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-malformed-effect.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-malformed-overlay.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-missing-asset.lenspack": {
+    "codes": [
+      "asset.missing"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-missing-id.lenspack": {
+    "codes": [
+      "manifest.id"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-not-png.lenspack": {
+    "codes": [
+      "asset.notPNG"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-param-out-of-range.lenspack": {
+    "codes": [
+      "effect.param"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-thumbnail-too-large.lenspack": {
+    "codes": [
+      "thumbnail.size"
+    ],
+    "result": "invalid"
+  },
+  "valid/legacy-missing-overlay-dropped.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-numeric-version.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-v1-lut.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-v2-animated.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-v2-overlay.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-v3-effects.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-v31-data.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-v5-filter-studio.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-budget-at-limit.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-full.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-string-lut.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-subdirectory.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-unknown-effect-skipped.lenspack": {
+    "codes": [],
+    "result": "valid"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "effects": [
+    {
+      "intensity": "high",
+      "type": "bloom"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "version": "1.0.0"
+}

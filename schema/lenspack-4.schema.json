@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moiz-7/lenspack-spec/schema/lenspack-4.schema.json",
+  "title": "LensPack manifest, format 4",
+  "description": "Structural schema for manifest.json with \"lenspack\": 4. Numeric limits, enumerations and budgets live in conformance/limits.json, which both validators read; this schema mirrors them for editors and generic tooling. File-system rules (path safety, PNG checks, pixel budgets) cannot be expressed here and are enforced by the validators.",
+  "type": "object",
+  "required": ["lenspack", "id", "version", "name"],
+  "properties": {
+    "lenspack": {"const": 4},
+    "minLens": {"type": "string", "description": "Informational: the oldest Lens release the author tested."},
+    "id": {"type": "string", "pattern": "^@[a-z0-9][a-z0-9-]{0,38}/[a-z0-9][a-z0-9-]{0,63}$"},
+    "version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$"},
+    "name": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "author": {"type": "string"},
+    "summary": {"type": "string"},
+    "license": {"type": "string", "maxLength": 64, "pattern": "^[A-Za-z0-9.+()-]+( (AND|OR|WITH) [A-Za-z0-9.+()-]+)*$"},
+    "attribution": {"type": "string"},
+    "thumbnail": {"$ref": "#/$defs/path"},
+    "localized": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$"},
+      "additionalProperties": {
+        "type": "object",
+        "properties": {"name": {"type": "string"}, "summary": {"type": "string"}},
+        "additionalProperties": false
+      }
+    },
+    "required": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Features the pack cannot be rendered without. A reader that lacks one shows the pack as 'Needs a newer Lens'. Known names: lut, lutInput, effects, effectParams, overlays, overlayOpacity, overlayBlend, overlayZ, overlayFaces, data, meshTexture, triggers."
+    },
+    "requires": {"type": "array", "items": {"type": "string"}, "description": "Hardware labels (depth, faceTracking). Labels only."},
+    "lut": {
+      "oneOf": [
+        {"$ref": "#/$defs/path"},
+        {
+          "type": "object",
+          "required": ["file"],
+          "properties": {
+            "file": {"$ref": "#/$defs/path"},
+            "input": {"enum": ["srgb-display", "rec709-display", "p3-display", "apple-log", "hlg"], "default": "srgb-display"},
+            "output": {"enum": ["srgb-display", "rec709-display", "p3-display"]}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effects": {"type": "array", "maxItems": 16, "items": {"$ref": "#/$defs/effect"}},
+    "overlays": {"type": "array", "maxItems": 8, "items": {"$ref": "#/$defs/overlay"}},
+    "triggers": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["blendshape", "overlay"],
+        "properties": {
+          "blendshape": {"type": "string", "description": "mouthOpen | smile | browsUp | blink; unknown names are skipped."},
+          "threshold": {"type": "number", "default": 0.5},
+          "overlay": {"$ref": "#/$defs/overlay"}
+        }
+      }
+    },
+    "meshTexture": {"$ref": "#/$defs/path"},
+    "data": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {"type": "string", "description": "elevation | speed; unknown types are skipped."},
+          "position": {"enum": ["topLeft", "topRight", "bottomLeft", "bottomRight"], "default": "bottomLeft"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!~)(?!.*\\\\)(?!.*(^|/)\\.{1,2}(/|$))[^/]+(/[^/]+)?$",
+      "description": "Relative to the pack root; at most one subdirectory; no '..', no absolute paths, no backslashes. Symlinks are refused by readers."
+    },
+    "effect": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"type": "string", "description": "bloom | halation | grain | vignette | saturation | contrast | temperature | fade | sharpen; unknown types are skipped."},
+        "intensity": {"type": "number", "default": 0.5},
+        "params": {"type": "object", "additionalProperties": {"type": "number"}}
+      }
+    },
+    "overlay": {
+      "type": "object",
+      "required": ["image", "anchor"],
+      "properties": {
+        "image": {"$ref": "#/$defs/path"},
+        "anchor": {"type": "string", "description": "forehead | eyes | nose | mouth | chin; unknown anchors are skipped."},
+        "scale": {"type": "number", "default": 1},
+        "offsetX": {"type": "number", "default": 0},
+        "offsetY": {"type": "number", "default": 0},
+        "frames": {"type": "array", "maxItems": 23, "items": {"$ref": "#/$defs/path"}},
+        "fps": {"type": "number", "default": 8},
+        "opacity": {"type": "number", "minimum": 0, "maximum": 1, "default": 1},
+        "blend": {"enum": ["normal", "multiply", "screen", "add"], "default": "normal"},
+        "z": {"type": "integer", "minimum": -100, "maximum": 100, "default": 0},
+        "faces": {"oneOf": [{"enum": ["all", "largest"]}, {"type": "integer", "minimum": 1, "maximum": 8}], "default": "all"}
+      }
+    }
+  }
+}

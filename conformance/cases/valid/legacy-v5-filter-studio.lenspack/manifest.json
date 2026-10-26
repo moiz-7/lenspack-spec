@@ -1,0 +1,17 @@
+{
+  "meshTexture": "paint.png",
+  "name": "Face Paint",
+  "requires": [
+    "faceTracking"
+  ],
+  "triggers": [
+    {
+      "blendshape": "mouthOpen",
+      "overlay": {
+        "anchor": "mouth",
+        "image": "fire.png"
+      },
+      "threshold": 0.6
+    }
+  ]
+}

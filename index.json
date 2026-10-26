@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "packs": [
     {
       "name": "Sunset Fade",
@@ -7,7 +7,29 @@
       "summary": "Warm lifted shadows and muted blues \u2014 the starter community look.",
       "fileName": "Sunset Fade.cube",
       "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/examples/Sunset%20Fade.cube",
-      "sha256": "7bd9c1a7b37fafc1542fd613ea5dee81accfba921320b33b9552e6f9cd16311c"
+      "sha256": "7bd9c1a7b37fafc1542fd613ea5dee81accfba921320b33b9552e6f9cd16311c",
+      "size": 13899,
+      "kind": "cube",
+      "lenspack": 1,
+      "id": "legacy:7bd9c1a7b37fafc1",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "name": "Party Crown",
+      "author": "@lenspack-spec",
+      "summary": "A crown on every face, with a little bloom and grain.",
+      "fileName": "lenspack-spec.party-crown.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.party-crown.lenspack",
+      "sha256": "e178eb0e8bbeeca0f30db0fdc65de168b1deb24f1351413387410f45cdac44d0",
+      "id": "@lenspack-spec/party-crown",
+      "version": "1.0.0",
+      "size": 690,
+      "license": "CC-BY-4.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ]
     }
   ]
 }

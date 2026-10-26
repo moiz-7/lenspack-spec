@@ -1,0 +1,57 @@
+{
+  "attribution": "Photo grain scanned by @x",
+  "data": [
+    {
+      "type": "speed"
+    }
+  ],
+  "effects": [
+    {
+      "intensity": 0.3,
+      "params": {
+        "chroma": 0.1,
+        "roughness": 0.5,
+        "size": 0.002
+      },
+      "type": "grain"
+    },
+    {
+      "params": {
+        "kelvinShift": 400,
+        "tint": -0.1
+      },
+      "type": "temperature"
+    }
+  ],
+  "id": "@conformance/full",
+  "lenspack": 4,
+  "license": "CC-BY-4.0",
+  "localized": {
+    "fr": {
+      "name": "Complet",
+      "summary": "Tout"
+    }
+  },
+  "lut": {
+    "file": "look.cube",
+    "input": "apple-log",
+    "output": "rec709-display"
+  },
+  "name": "Case",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "blend": "screen",
+      "faces": "largest",
+      "image": "a.png",
+      "opacity": 0.8,
+      "z": 2
+    }
+  ],
+  "required": [
+    "lut",
+    "effects"
+  ],
+  "thumbnail": "thumb.png",
+  "version": "1.2.0-beta.1"
+}

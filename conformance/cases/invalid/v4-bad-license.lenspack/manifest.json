@@ -1,0 +1,12 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "license": "MIT; rm -rf",
+  "name": "Case",
+  "version": "1.0.0"
+}

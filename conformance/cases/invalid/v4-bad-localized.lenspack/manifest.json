@@ -1,0 +1,16 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "localized": {
+    "French": {
+      "name": "x"
+    }
+  },
+  "name": "Case",
+  "version": "1.0.0"
+}
