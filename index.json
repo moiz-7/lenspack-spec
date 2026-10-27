@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "sequence": 1,
+  "sequence": 2,
   "packs": [
     {
       "name": "Sunset Fade",
@@ -14,6 +14,249 @@
       "lenspack": 1,
       "id": "legacy:7bd9c1a7b37fafc1",
       "license": "CC-BY-4.0"
+    },
+    {
+      "name": "Gold Leaf Crown",
+      "author": "@lens",
+      "summary": "A drawn gold crown, a warm grade and a little glow.",
+      "fileName": "lens.gold-leaf-crown.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lens.gold-leaf-crown.lenspack",
+      "sha256": "200dbd58f05f703a8610714b5c53d6e2a0a833d0947061033c08f4ab8d0b2ac2",
+      "id": "@lens/gold-leaf-crown",
+      "version": "1.0.0",
+      "size": 81590,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lens.gold-leaf-crown.lenspack/thumb.png",
+      "featured": true,
+      "faces": true,
+      "localized": {
+        "fr": {
+          "name": "Couronne feuille d'or"
+        },
+        "es": {
+          "name": "Corona de pan de oro"
+        }
+      }
+    },
+    {
+      "name": "Round Shades",
+      "author": "@lens",
+      "summary": "Round gold-rimmed sunglasses that turn with your head, on a bright summer grade.",
+      "fileName": "lens.round-shades.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lens.round-shades.lenspack",
+      "sha256": "aae8b07c514d163c6bd58dd1a0093f621c76279ec3ddf081d3f914c8972cbcfa",
+      "id": "@lens/round-shades",
+      "version": "1.0.0",
+      "size": 104917,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lens.round-shades.lenspack/thumb.png",
+      "faces": true,
+      "localized": {
+        "fr": {
+          "name": "Lunettes rondes"
+        },
+        "es": {
+          "name": "Gafas redondas"
+        }
+      }
+    },
+    {
+      "name": "Soft Halo",
+      "author": "@lens",
+      "summary": "A glowing ring behind your head, pastel light, skin kept true.",
+      "fileName": "lens.soft-halo.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lens.soft-halo.lenspack",
+      "sha256": "7db1880fd6436a700cdadf277e7cb5f31b8fcfffda66528e6ae9da19093fd58c",
+      "id": "@lens/soft-halo",
+      "version": "1.0.0",
+      "size": 149106,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lens.soft-halo.lenspack/thumb.png",
+      "featured": true,
+      "faces": true,
+      "localized": {
+        "fr": {
+          "name": "Halo doux"
+        },
+        "es": {
+          "name": "Halo suave"
+        }
+      }
+    },
+    {
+      "name": "Starlit Cheeks",
+      "author": "@lens",
+      "summary": "Twinkling stars on both cheeks and a soft lavender cast.",
+      "fileName": "lens.starlit-cheeks.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lens.starlit-cheeks.lenspack",
+      "sha256": "2c475993ca7d1665774360b18c4da06118998b40596437447ca4a617c0ed145b",
+      "id": "@lens/starlit-cheeks",
+      "version": "1.0.0",
+      "size": 120813,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lens.starlit-cheeks.lenspack/thumb.png",
+      "faces": true,
+      "localized": {
+        "fr": {
+          "name": "Joues \u00e9toil\u00e9es"
+        },
+        "es": {
+          "name": "Mejillas estrelladas"
+        }
+      }
+    },
+    {
+      "name": "Confetti Pop",
+      "author": "@lenspack-spec",
+      "summary": "Open your mouth and confetti bursts out, once each time.",
+      "fileName": "lenspack-spec.confetti-pop.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.confetti-pop.lenspack",
+      "sha256": "9f5f326413651f918c65b9b5fa10d1be6300bc3fa3da5463f41a3bd74ce97d10",
+      "id": "@lenspack-spec/confetti-pop",
+      "version": "1.0.0",
+      "size": 170694,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.confetti-pop.lenspack/thumb.png",
+      "faces": true,
+      "localized": {
+        "fr": {
+          "name": "Pluie de confettis"
+        }
+      }
+    },
+    {
+      "name": "Garden P3",
+      "author": "@lenspack-spec",
+      "summary": "Lush greens graded in Display P3, skin left alone.",
+      "fileName": "lenspack-spec.garden-p3.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.garden-p3.lenspack",
+      "sha256": "1920dfdad7aa46db5eded66b16670085fcca82b1789f00ba9bca3ea860552610",
+      "id": "@lenspack-spec/garden-p3",
+      "version": "1.0.0",
+      "size": 36699,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.garden-p3.lenspack/thumb.png"
+    },
+    {
+      "name": "Harbour Teal",
+      "author": "@lenspack-spec",
+      "summary": "Teal shadows, warm highlights, a firm contrast.",
+      "fileName": "lenspack-spec.harbour-teal.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.harbour-teal.lenspack",
+      "sha256": "585d961045814bd5da0b40a2a2e2fec829991ff1a04a483d8e0b435643b29e86",
+      "id": "@lenspack-spec/harbour-teal",
+      "version": "1.0.0",
+      "size": 61446,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.harbour-teal.lenspack/thumb.png",
+      "featured": true,
+      "localized": {
+        "fr": {
+          "name": "Port sarcelle"
+        },
+        "es": {
+          "name": "Puerto turquesa"
+        }
+      }
+    },
+    {
+      "name": "Log to Daylight",
+      "author": "@lenspack-spec",
+      "summary": "For Apple Log footage: a gentle daylight rendering to Rec.709.",
+      "fileName": "lenspack-spec.log-to-daylight.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.log-to-daylight.lenspack",
+      "sha256": "f3cd6bee3485233e4b0d3465aa4f6df4097d571f87409c26579aed559cdfee1a",
+      "id": "@lenspack-spec/log-to-daylight",
+      "version": "1.0.0",
+      "size": 207550,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.log-to-daylight.lenspack/thumb.png"
+    },
+    {
+      "name": "Night Market",
+      "author": "@lenspack-spec",
+      "summary": "Warm neon highlights that bloom and halate; deep, clean shadows.",
+      "fileName": "lenspack-spec.night-market.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.night-market.lenspack",
+      "sha256": "111f9d1e5fd578d66adfa9324aa13e6bbca3cd4e7585a814be49586e87155931",
+      "id": "@lenspack-spec/night-market",
+      "version": "1.0.0",
+      "size": 47726,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.night-market.lenspack/thumb.png",
+      "featured": true
+    },
+    {
+      "name": "Paper Matte",
+      "author": "@lenspack-spec",
+      "summary": "Lifted blacks, low contrast, fine grain, a touch warm.",
+      "fileName": "lenspack-spec.paper-matte.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.paper-matte.lenspack",
+      "sha256": "19fa9276d66abb75a327ff95d36cd765f45126eb8ea52c49a10ca730a5e6fdc1",
+      "id": "@lenspack-spec/paper-matte",
+      "version": "1.0.0",
+      "size": 10076,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.paper-matte.lenspack/thumb.png"
+    },
+    {
+      "name": "Paper Moustache",
+      "author": "@lenspack-spec",
+      "summary": "A cut-paper moustache and a faded, papery grade.",
+      "fileName": "lenspack-spec.paper-moustache.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.paper-moustache.lenspack",
+      "sha256": "4ee2e5b27490820df4a3ee63588333bcabdfa42a4a67da87b8e68a54161357af",
+      "id": "@lenspack-spec/paper-moustache",
+      "version": "1.0.0",
+      "size": 75378,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.paper-moustache.lenspack/thumb.png",
+      "faces": true,
+      "localized": {
+        "fr": {
+          "name": "Moustache en papier"
+        }
+      }
     },
     {
       "name": "Party Crown",
@@ -32,6 +275,45 @@
         "faceTracking"
       ],
       "faces": true
+    },
+    {
+      "name": "Rosy Blush",
+      "author": "@lenspack-spec",
+      "summary": "A soft blush on both cheeks \u2014 colour, never reshaping.",
+      "fileName": "lenspack-spec.rosy-blush.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.rosy-blush.lenspack",
+      "sha256": "90e20d240f885472300fb600e44470b2544876ba3fd07b069d01d541ef4a312a",
+      "id": "@lenspack-spec/rosy-blush",
+      "version": "1.0.0",
+      "size": 52015,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "requires": [
+        "faceTracking"
+      ],
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.rosy-blush.lenspack/thumb.png",
+      "faces": true
+    },
+    {
+      "name": "Silver Mono",
+      "author": "@lenspack-spec",
+      "summary": "Black and white with a silver sheen, fine grain and a feathered vignette.",
+      "fileName": "lenspack-spec.silver-mono.lenspack",
+      "url": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/dist/lenspack-spec.silver-mono.lenspack",
+      "sha256": "2b333b757a8d318d3d948d7cc26d4ccdf36743ee7f25bf9e96aba6db4939c64b",
+      "id": "@lenspack-spec/silver-mono",
+      "version": "1.0.0",
+      "size": 64738,
+      "license": "CC0-1.0",
+      "kind": "pack",
+      "lenspack": 4,
+      "thumbnail": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/packs/lenspack-spec.silver-mono.lenspack/thumb.png",
+      "localized": {
+        "fr": {
+          "name": "Argent mono"
+        }
+      }
     }
   ]
 }

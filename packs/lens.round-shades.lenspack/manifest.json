@@ -1,0 +1,45 @@
+{
+  "lenspack": 4,
+  "id": "@lens/round-shades",
+  "version": "1.0.0",
+  "name": "Round Shades",
+  "author": "@lens",
+  "summary": "Round gold-rimmed sunglasses that turn with your head, on a bright summer grade.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Lunettes rondes"
+    },
+    "es": {
+      "name": "Gafas redondas"
+    }
+  },
+  "required": [
+    "overlays"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "vignette",
+      "intensity": 0.35,
+      "params": {
+        "midpoint": 0.55,
+        "feather": 0.6
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "image": "shades.png",
+      "anchor": "eyes",
+      "scale": 1.05,
+      "pose": "full"
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

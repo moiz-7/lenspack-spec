@@ -1,0 +1,41 @@
+{
+  "lenspack": 4,
+  "id": "@lens/gold-leaf-crown",
+  "version": "1.0.0",
+  "name": "Gold Leaf Crown",
+  "author": "@lens",
+  "summary": "A drawn gold crown, a warm grade and a little glow.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Couronne feuille d'or"
+    },
+    "es": {
+      "name": "Corona de pan de oro"
+    }
+  },
+  "required": [
+    "overlays"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "bloom",
+      "intensity": 0.25
+    }
+  ],
+  "overlays": [
+    {
+      "image": "crown.png",
+      "anchor": "forehead",
+      "scale": 1.25,
+      "offsetY": 0.12
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

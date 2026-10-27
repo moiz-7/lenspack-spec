@@ -1,0 +1,34 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/night-market",
+  "version": "1.0.0",
+  "name": "Night Market",
+  "author": "@lenspack-spec",
+  "summary": "Warm neon highlights that bloom and halate; deep, clean shadows.",
+  "license": "CC0-1.0",
+  "required": [
+    "lut"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "bloom",
+      "intensity": 0.45,
+      "params": {
+        "threshold": 0.75,
+        "radius": 0.025
+      }
+    },
+    {
+      "type": "halation",
+      "intensity": 0.4,
+      "params": {
+        "threshold": 0.8,
+        "radius": 0.012
+      }
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

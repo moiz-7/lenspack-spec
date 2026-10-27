@@ -1,0 +1,38 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/paper-moustache",
+  "version": "1.0.0",
+  "name": "Paper Moustache",
+  "author": "@lenspack-spec",
+  "summary": "A cut-paper moustache and a faded, papery grade.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Moustache en papier"
+    }
+  },
+  "required": [
+    "overlays"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "grain",
+      "intensity": 0.25
+    }
+  ],
+  "overlays": [
+    {
+      "image": "moustache.png",
+      "anchor": "mouth",
+      "scale": 0.72,
+      "offsetY": 0.1
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

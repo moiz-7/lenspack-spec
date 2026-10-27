@@ -1,0 +1,61 @@
+{
+  "lenspack": 4,
+  "id": "@lens/starlit-cheeks",
+  "version": "1.0.0",
+  "name": "Starlit Cheeks",
+  "author": "@lens",
+  "summary": "Twinkling stars on both cheeks and a soft lavender cast.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Joues étoilées"
+    },
+    "es": {
+      "name": "Mejillas estrelladas"
+    }
+  },
+  "required": [
+    "overlays"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "grain",
+      "intensity": 0.2,
+      "params": {
+        "size": 0.0012,
+        "roughness": 0.4
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "image": "star1.png",
+      "frames": [
+        "star2.png",
+        "star3.png"
+      ],
+      "fps": 6,
+      "anchor": "leftCheek",
+      "scale": 0.32,
+      "blend": "screen"
+    },
+    {
+      "image": "star2.png",
+      "frames": [
+        "star3.png",
+        "star1.png"
+      ],
+      "fps": 6,
+      "anchor": "rightCheek",
+      "scale": 0.28,
+      "blend": "screen"
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

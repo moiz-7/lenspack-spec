@@ -1,0 +1,19 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/garden-p3",
+  "version": "1.0.0",
+  "name": "Garden P3",
+  "author": "@lenspack-spec",
+  "summary": "Lush greens graded in Display P3, skin left alone.",
+  "license": "CC0-1.0",
+  "required": [
+    "lut",
+    "lutInput"
+  ],
+  "lut": {
+    "file": "look.cube",
+    "input": "p3-display",
+    "output": "p3-display"
+  },
+  "thumbnail": "thumb.png"
+}

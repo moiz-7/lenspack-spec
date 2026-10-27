@@ -141,6 +141,12 @@ def build():
     previous = existing.get("sequence", 0)
     unchanged = existing.get("packs") == entries
     index = {"version": 2, "sequence": previous if unchanged and previous else previous + 1, "packs": entries}
+    # Revocations are honoured only in an index signed by the rotation key (SPEC §10.1).
+    revoke = catalogue().get("revokeKeyIds", [])
+    if revoke:
+        index["revokeKeyIds"] = revoke
+        if existing.get("revokeKeyIds") != revoke and unchanged and previous:
+            index["sequence"] = previous + 1
     return outputs, index
 
 

@@ -1,0 +1,19 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/log-to-daylight",
+  "version": "1.0.0",
+  "name": "Log to Daylight",
+  "author": "@lenspack-spec",
+  "summary": "For Apple Log footage: a gentle daylight rendering to Rec.709.",
+  "license": "CC0-1.0",
+  "required": [
+    "lut",
+    "lutInput"
+  ],
+  "lut": {
+    "file": "look.cube",
+    "input": "apple-log",
+    "output": "rec709-display"
+  },
+  "thumbnail": "thumb.png"
+}

@@ -1,0 +1,48 @@
+{
+  "lenspack": 4,
+  "id": "@lens/soft-halo",
+  "version": "1.0.0",
+  "name": "Soft Halo",
+  "author": "@lens",
+  "summary": "A glowing ring behind your head, pastel light, skin kept true.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Halo doux"
+    },
+    "es": {
+      "name": "Halo suave"
+    }
+  },
+  "required": [
+    "overlays"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "bloom",
+      "intensity": 0.3,
+      "params": {
+        "threshold": 0.7,
+        "radius": 0.02
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "image": "halo.png",
+      "anchor": "head",
+      "scale": 1.3,
+      "opacity": 0.9,
+      "blend": "screen",
+      "behindPerson": true
+    }
+  ],
+  "skinProtect": 0.5,
+  "thumbnail": "thumb.png"
+}

@@ -1,5 +1,11 @@
 {
-  "comment": "Gallery curation, read by tools/build_index.py. baseURL: where dist/ and packs/ are served from. featured: pack ids for the Featured row.",
+  "comment": "Gallery curation, read by tools/build_index.py. baseURL: where dist/ and packs/ are served from. featured: pack ids for the Featured row. revokeKeyIds: index-signing key ids to revoke (sign that index with the rotation key; PUBLISHING.md).",
   "baseURL": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/",
-  "featured": []
+  "featured": [
+    "@lens/gold-leaf-crown",
+    "@lens/soft-halo",
+    "@lenspack-spec/harbour-teal",
+    "@lenspack-spec/night-market"
+  ],
+  "revokeKeyIds": []
 }

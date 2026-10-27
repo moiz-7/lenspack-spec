@@ -1,0 +1,39 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/silver-mono",
+  "version": "1.0.0",
+  "name": "Silver Mono",
+  "author": "@lenspack-spec",
+  "summary": "Black and white with a silver sheen, fine grain and a feathered vignette.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Argent mono"
+    }
+  },
+  "required": [
+    "lut"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "grain",
+      "intensity": 0.4,
+      "params": {
+        "size": 0.0012,
+        "roughness": 0.55
+      }
+    },
+    {
+      "type": "vignette",
+      "intensity": 0.45,
+      "params": {
+        "midpoint": 0.5,
+        "feather": 0.7
+      }
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

@@ -1,0 +1,48 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/confetti-pop",
+  "version": "1.0.0",
+  "name": "Confetti Pop",
+  "author": "@lenspack-spec",
+  "summary": "Open your mouth and confetti bursts out, once each time.",
+  "license": "CC0-1.0",
+  "localized": {
+    "fr": {
+      "name": "Pluie de confettis"
+    }
+  },
+  "required": [
+    "triggers"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "lut": {
+    "file": "look.cube"
+  },
+  "effects": [
+    {
+      "type": "saturation",
+      "intensity": 0.6
+    }
+  ],
+  "triggers": [
+    {
+      "blendshape": "mouthOpen",
+      "threshold": 0.55,
+      "mode": "once",
+      "overlay": {
+        "image": "confetti0.png",
+        "frames": [
+          "confetti1.png",
+          "confetti2.png",
+          "confetti3.png"
+        ],
+        "fps": 10,
+        "anchor": "mouth",
+        "scale": 2.2
+      }
+    }
+  ],
+  "thumbnail": "thumb.png"
+}

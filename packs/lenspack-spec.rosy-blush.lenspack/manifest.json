@@ -1,0 +1,38 @@
+{
+  "lenspack": 4,
+  "id": "@lenspack-spec/rosy-blush",
+  "version": "1.0.0",
+  "name": "Rosy Blush",
+  "author": "@lenspack-spec",
+  "summary": "A soft blush on both cheeks — colour, never reshaping.",
+  "license": "CC0-1.0",
+  "required": [
+    "overlays"
+  ],
+  "requires": [
+    "faceTracking"
+  ],
+  "effects": [
+    {
+      "type": "fade",
+      "intensity": 0.2
+    }
+  ],
+  "overlays": [
+    {
+      "image": "blush.png",
+      "anchor": "leftCheek",
+      "scale": 0.36,
+      "blend": "multiply",
+      "opacity": 0.55
+    },
+    {
+      "image": "blush.png",
+      "anchor": "rightCheek",
+      "scale": 0.36,
+      "blend": "multiply",
+      "opacity": 0.55
+    }
+  ],
+  "thumbnail": "thumb.png"
+}
