@@ -42,7 +42,7 @@ def parse_signature(sig_bytes):
         doc = json.loads(sig_bytes.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError):
         raise Rejected("signature.malformed", "index.json.sig is not JSON")
-    if not isinstance(doc, dict) or doc.get("v") != SIGNATURE_VERSION \
+    if not isinstance(doc, dict) or type(doc.get("v")) is not int or doc["v"] != SIGNATURE_VERSION \
             or not isinstance(doc.get("keyId"), str) or not isinstance(doc.get("sig"), str):
         raise Rejected("signature.malformed", "index.json.sig must be {v: 1, keyId, sig}")
     try:
@@ -75,7 +75,7 @@ def verify(index_bytes, sig_bytes, keys, sequence_seen=0, revoked=()):
     except (UnicodeDecodeError, json.JSONDecodeError):
         raise Rejected("index.malformed", "index.json is not JSON")
     sequence = index.get("sequence") if isinstance(index, dict) else None
-    if not isinstance(sequence, int) or isinstance(sequence, bool) or sequence < 1:
+    if type(sequence) is not int or sequence < 1:
         raise Rejected("index.sequenceMissing", "a signed index must carry a positive 'sequence'")
     if sequence < sequence_seen:
         raise Rejected("index.rollback", f"sequence {sequence} is below {sequence_seen}, already seen")

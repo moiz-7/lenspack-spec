@@ -362,7 +362,7 @@ def smoothstep(e0, e1, x):
 
 def vignette_factor(r, intensity, midpoint=0.5, feather=0.0):
     m, f = midpoint, feather
-    return 1 - intensity * smoothstep(m, m + f * (1 - m) + 0.001, r)
+    return 1 - intensity * smoothstep(m, m + f * (1 - m) + 1e-4, r)
 
 
 def threshold_bloom_uniform(e, intensity, threshold):

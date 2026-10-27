@@ -332,7 +332,7 @@ params is exactly what it was in v3; a param only refines its own node.
 - **`halation.threshold` = t.** As bloom, with the blurred highlights tinted (×1.15, ×0.85,
   ×0.70) and screened at 0.6·i.
 - **`vignette.feather` = f** (with `midpoint` m, default 0.5). With r the distance from the
-  image centre divided by the half-diagonal, `v(r) = 1 − i·smoothstep(m, m + f·(1 − m) + 0.001, r)`,
+  image centre divided by the half-diagonal, `v(r) = 1 − i·smoothstep(m, m + f·(1 − m) + 0.0001, r)`,
   multiplied into E. A vignette without `feather` is the v3 node (`midpoint` alone sets its
   radius, as before).
 - **`temperature.kelvinShift` = s, `temperature.tint` = τ.** The target white is the Planckian
