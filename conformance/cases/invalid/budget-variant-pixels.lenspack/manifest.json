@@ -1,0 +1,43 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "image": "o0.png",
+      "variants": [
+        "v0.png"
+      ]
+    },
+    {
+      "anchor": "forehead",
+      "image": "o1.png",
+      "variants": [
+        "v1.png"
+      ]
+    },
+    {
+      "anchor": "forehead",
+      "image": "o2.png",
+      "variants": [
+        "v2.png"
+      ]
+    },
+    {
+      "anchor": "forehead",
+      "image": "o3.png",
+      "variants": [
+        "v3.png"
+      ]
+    },
+    {
+      "anchor": "forehead",
+      "image": "o4.png",
+      "variants": [
+        "v4.png"
+      ]
+    }
+  ],
+  "version": "1.0.0"
+}

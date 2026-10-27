@@ -1,0 +1,11 @@
+{
+  "background": {
+    "fit": "stretch",
+    "image": "bg.png",
+    "mode": "image"
+  },
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "facePaint": {
+    "frames": [
+      "q.png"
+    ],
+    "image": "p.png"
+  },
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "version": "1.0.0"
+}

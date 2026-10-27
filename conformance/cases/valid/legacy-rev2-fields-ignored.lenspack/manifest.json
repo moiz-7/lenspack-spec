@@ -1,0 +1,19 @@
+{
+  "facePaint": {
+    "image": "x.png"
+  },
+  "lut": "look.cube",
+  "name": "Old Paint",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "image": "a.png",
+      "pose": "sideways",
+      "variants": []
+    }
+  ],
+  "retouch": {
+    "skinSmoothing": 9
+  },
+  "skinProtect": "lots"
+}

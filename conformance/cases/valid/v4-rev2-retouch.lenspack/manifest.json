@@ -1,0 +1,13 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "required": [
+    "retouch"
+  ],
+  "retouch": {
+    "skinSmoothing": 0.6,
+    "slimFace": 1
+  },
+  "version": "1.0.0"
+}

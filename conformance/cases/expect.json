@@ -17,6 +17,12 @@
     ],
     "result": "invalid"
   },
+  "invalid/budget-background-pixels.lenspack": {
+    "codes": [
+      "budget.imagePixels"
+    ],
+    "result": "invalid"
+  },
   "invalid/budget-data.lenspack": {
     "codes": [
       "budget.data"
@@ -26,6 +32,18 @@
   "invalid/budget-effects.lenspack": {
     "codes": [
       "budget.effects"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-face-paint-frame-pixels.lenspack": {
+    "codes": [
+      "budget.framePixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-face-paint-frames.lenspack": {
+    "codes": [
+      "budget.frames"
     ],
     "result": "invalid"
   },
@@ -62,6 +80,18 @@
   "invalid/budget-triggers.lenspack": {
     "codes": [
       "budget.triggers"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-variant-pixels.lenspack": {
+    "codes": [
+      "budget.packPixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/budget-variants.lenspack": {
+    "codes": [
+      "budget.variants"
     ],
     "result": "invalid"
   },
@@ -131,9 +161,51 @@
     ],
     "result": "invalid"
   },
+  "invalid/required-missing-blend.lenspack": {
+    "codes": [
+      "required.missing"
+    ],
+    "result": "invalid"
+  },
+  "invalid/required-missing-trigger-blend.lenspack": {
+    "codes": [
+      "required.missing"
+    ],
+    "result": "invalid"
+  },
   "invalid/trigger-image-too-large.lenspack": {
     "codes": [
       "budget.imagePixels"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-background-amount-range.lenspack": {
+    "codes": [
+      "value.range"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-background-bad-fit.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-background-bad-mode.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-background-image-missing.lenspack": {
+    "codes": [
+      "asset.missing"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-behind-person.lenspack": {
+    "codes": [
+      "manifest.field"
     ],
     "result": "invalid"
   },
@@ -161,9 +233,45 @@
     ],
     "result": "invalid"
   },
+  "invalid/v4-bad-pose.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-remix-of.lenspack": {
+    "codes": [
+      "manifest.remixOf"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-stage.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-bad-trigger-mode.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
   "invalid/v4-bad-version.lenspack": {
     "codes": [
       "manifest.version"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-face-paint-and-mesh.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-face-paint-bad-blend.lenspack": {
+    "codes": [
+      "manifest.field"
     ],
     "result": "invalid"
   },
@@ -203,9 +311,39 @@
     ],
     "result": "invalid"
   },
+  "invalid/v4-retouch-missing-amount.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-retouch-over-cap.lenspack": {
+    "codes": [
+      "value.range"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-skin-protect-range.lenspack": {
+    "codes": [
+      "value.range"
+    ],
+    "result": "invalid"
+  },
   "invalid/v4-thumbnail-too-large.lenspack": {
     "codes": [
       "thumbnail.size"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-variants-empty.lenspack": {
+    "codes": [
+      "manifest.field"
+    ],
+    "result": "invalid"
+  },
+  "invalid/v4-variants-with-frames.lenspack": {
+    "codes": [
+      "manifest.field"
     ],
     "result": "invalid"
   },
@@ -214,6 +352,10 @@
     "result": "valid"
   },
   "valid/legacy-numeric-version.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/legacy-rev2-fields-ignored.lenspack": {
     "codes": [],
     "result": "valid"
   },
@@ -246,6 +388,54 @@
     "result": "valid"
   },
   "valid/v4-full.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-anchors.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-background-blur.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-background-image.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-blend-extended.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-face-paint-animated.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-face-paint.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-pose-stage.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-remix-of.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-retouch.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-skin-protect.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-triggers.lenspack": {
+    "codes": [],
+    "result": "valid"
+  },
+  "valid/v4-rev2-variants.lenspack": {
     "codes": [],
     "result": "valid"
   },

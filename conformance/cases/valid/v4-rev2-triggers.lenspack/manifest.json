@@ -1,0 +1,43 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "required": [
+    "triggerModes",
+    "triggerShapes2"
+  ],
+  "triggers": [
+    {
+      "blendshape": "wink",
+      "mode": "toggle",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "kiss",
+      "mode": "once",
+      "overlay": {
+        "anchor": "mouth",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "tongueOut",
+      "overlay": {
+        "anchor": "mouth",
+        "image": "a.png"
+      }
+    },
+    {
+      "blendshape": "cheekPuff",
+      "mode": "while",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    }
+  ],
+  "version": "1.0.0"
+}

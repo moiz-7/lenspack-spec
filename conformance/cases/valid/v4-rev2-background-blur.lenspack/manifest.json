@@ -1,0 +1,13 @@
+{
+  "background": {
+    "amount": 0.4,
+    "mode": "blur"
+  },
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "required": [
+    "background"
+  ],
+  "version": "1.0.0"
+}

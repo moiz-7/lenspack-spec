@@ -1,0 +1,20 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "faces": 3,
+      "image": "a.png",
+      "variants": [
+        "b.png",
+        "c.png"
+      ]
+    }
+  ],
+  "required": [
+    "overlayVariants"
+  ],
+  "version": "1.0.0"
+}

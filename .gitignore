@@ -1,2 +1,10 @@
 __pycache__/
 .pytest_cache/
+# Never commit a key. CI also fails on any PEM private-key header (tools/scan_secrets.py).
+*.pem
+*.key
+# Written into the wheel at build time from conformance/limits.json; never a second source.
+lenspack/limits.json
+build/
+dist-py/
+*.egg-info/

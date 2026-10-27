@@ -1,0 +1,32 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "blend": "overlay",
+      "image": "a.png"
+    },
+    {
+      "anchor": "forehead",
+      "blend": "softLight",
+      "image": "a.png",
+      "opacity": 0.5
+    }
+  ],
+  "required": [
+    "overlayBlendExtended"
+  ],
+  "triggers": [
+    {
+      "blendshape": "smile",
+      "overlay": {
+        "anchor": "forehead",
+        "blend": "softLight",
+        "image": "a.png"
+      }
+    }
+  ],
+  "version": "1.0.0"
+}

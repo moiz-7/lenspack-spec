@@ -1,0 +1,8 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "lut": "look.cube",
+  "name": "Case",
+  "skinProtect": 2,
+  "version": "1.0.0"
+}

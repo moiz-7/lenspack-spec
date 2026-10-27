@@ -1,0 +1,33 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "overlays": [
+    {
+      "anchor": "forehead",
+      "behindPerson": true,
+      "image": "a.png",
+      "pose": "full",
+      "stage": "scene"
+    },
+    {
+      "anchor": "eyes",
+      "image": "a.png",
+      "pose": "screen",
+      "stage": "top"
+    },
+    {
+      "anchor": "chin",
+      "behindPerson": false,
+      "image": "a.png",
+      "pose": "roll"
+    }
+  ],
+  "required": [
+    "overlays",
+    "overlayPose",
+    "overlayStage",
+    "overlayBehind"
+  ],
+  "version": "1.0.0"
+}

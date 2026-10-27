@@ -1,0 +1,16 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "triggers": [
+    {
+      "blendshape": "smile",
+      "mode": "always",
+      "overlay": {
+        "anchor": "forehead",
+        "image": "a.png"
+      }
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "overlays": [
+    {
+      "anchor": "leftEye",
+      "image": "a.png"
+    },
+    {
+      "anchor": "rightEye",
+      "image": "a.png"
+    },
+    {
+      "anchor": "leftCheek",
+      "image": "a.png"
+    },
+    {
+      "anchor": "rightCheek",
+      "image": "a.png"
+    },
+    {
+      "anchor": "head",
+      "image": "a.png"
+    },
+    {
+      "anchor": "face",
+      "image": "a.png"
+    }
+  ],
+  "required": [
+    "faceAnchors"
+  ],
+  "version": "1.0.0"
+}

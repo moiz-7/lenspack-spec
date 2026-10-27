@@ -1,0 +1,15 @@
+{
+  "facePaint": {
+    "blend": "multiply",
+    "faces": "largest",
+    "image": "paint.png",
+    "opacity": 0.8
+  },
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "required": [
+    "facePaint"
+  ],
+  "version": "1.0.0"
+}

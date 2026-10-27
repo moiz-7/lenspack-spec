@@ -1,0 +1,10 @@
+{
+  "facePaint": {
+    "image": "p.png"
+  },
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "meshTexture": "p.png",
+  "name": "Case",
+  "version": "1.0.0"
+}

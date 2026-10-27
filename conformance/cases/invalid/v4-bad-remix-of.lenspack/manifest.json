@@ -1,0 +1,14 @@
+{
+  "effects": [
+    {
+      "type": "fade"
+    }
+  ],
+  "id": "@conformance/case",
+  "lenspack": 4,
+  "name": "Case",
+  "remixOf": {
+    "id": "golden crown"
+  },
+  "version": "1.0.0"
+}
