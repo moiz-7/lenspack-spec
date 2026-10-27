@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moiz-7/lenspack-spec/schema/index-signature-1.schema.json",
+  "title": "LensPack gallery index signature, version 1",
+  "description": "index.json.sig: an Ed25519 signature over the exact bytes of index.json (SPEC §10.1).",
+  "type": "object",
+  "required": [
+    "v",
+    "keyId",
+    "sig"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "v": {
+      "const": 1
+    },
+    "keyId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "sig": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]{86}==$",
+      "description": "base64 of 64 bytes"
+    }
+  }
+}

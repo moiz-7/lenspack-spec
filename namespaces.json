@@ -1,0 +1,9 @@
+{
+  "comment": "Who may publish under each @author namespace: GitHub logins (SPEC §10.3). CI refuses a pull request whose author does not own the namespace of a pack it adds or changes. A new creator claims a free namespace for their own login in their first pull request. Reserved namespaces are the maintainers' only.",
+  "maintainers": ["moiz-7"],
+  "reserved": ["@lens", "@lenspack-spec", "@local", "@conformance"],
+  "namespaces": {
+    "@lens": ["moiz-7"],
+    "@lenspack-spec": ["moiz-7"]
+  }
+}

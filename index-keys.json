@@ -1,0 +1,4 @@
+{
+  "comment": "Ed25519 public keys that sign index.json (SPEC §10.1). Public keys only: raw 32 bytes, base64. Empty until the owner generates the keys (PUBLISHING.md, 'Index signing'). The app pins the same keys in IndexSignature.swift.",
+  "keys": []
+}

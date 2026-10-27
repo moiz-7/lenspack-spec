@@ -1,0 +1,5 @@
+{
+  "comment": "Gallery curation, read by tools/build_index.py. baseURL: where dist/ and packs/ are served from. featured: pack ids for the Featured row.",
+  "baseURL": "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/",
+  "featured": []
+}

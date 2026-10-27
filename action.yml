@@ -1,16 +1,42 @@
 name: Validate LensPack
-description: Validates .cube files, .lenspack folders and .lenspack zips against the LensPack spec.
+description: Validates .cube files, .lenspack folders and .lenspack zips against the LensPack spec (format 4, revision 2).
+branding:
+  icon: check-circle
+  color: orange
 inputs:
   path:
-    description: A file, folder or glob to validate.
+    description: Files, folders or globs to validate, separated by spaces.
     required: true
+  json:
+    description: Print machine-readable reports.
+    required: false
+    default: "false"
+outputs:
+  result:
+    description: valid, invalid or needs-newer — the worst result over every path.
+    value: ${{ steps.validate.outputs.result }}
 runs:
   using: composite
   steps:
-    - shell: bash
+    - name: Install the lenspack validator (from this action's own tag)
+      shell: bash
+      run: python3 -m pip install --quiet --disable-pip-version-check "${{ github.action_path }}"
+    - id: validate
+      name: Validate
+      shell: bash
+      env:
+        LENSPACK_PATHS: ${{ inputs.path }}
+        LENSPACK_JSON: ${{ inputs.json }}
       run: |
-        status=0
-        for p in ${{ inputs.path }}; do
-          python3 "${{ github.action_path }}/validator/validate_lenspack.py" "$p" || status=1
-        done
+        set +e
+        args=()
+        [ "$LENSPACK_JSON" = "true" ] && args+=(--json)
+        # Word-splitting and globbing of the input are intended: it is a list of paths/globs.
+        lenspack validate $LENSPACK_PATHS "${args[@]}"
+        status=$?
+        case $status in
+          0) echo "result=valid" >> "$GITHUB_OUTPUT" ;;
+          2) echo "result=needs-newer" >> "$GITHUB_OUTPUT" ;;
+          *) echo "result=invalid" >> "$GITHUB_OUTPUT" ;;
+        esac
         exit $status

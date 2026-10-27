@@ -14,10 +14,9 @@ import zipfile
 import pytest
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
-sys.path.insert(0, os.path.join(ROOT, "validator"))
-sys.path.insert(0, os.path.join(ROOT, "tools"))
+sys.path.insert(0, ROOT)
 
-import validate_lenspack as v  # noqa: E402
+from lenspack import validator as v  # noqa: E402
 
 CASES = os.path.join(ROOT, "conformance", "cases")
 EXPECT = json.load(open(os.path.join(CASES, "expect.json"), encoding="utf-8"))

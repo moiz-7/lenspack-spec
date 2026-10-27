@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "sequence": 1,
   "packs": [
     {
       "name": "Sunset Fade",
@@ -29,7 +30,8 @@
       "lenspack": 4,
       "requires": [
         "faceTracking"
-      ]
+      ],
+      "faces": true
     }
   ]
 }

@@ -18,6 +18,13 @@ def test_zip_is_deterministic():
     assert build_index.deterministic_zip(folder) == build_index.deterministic_zip(folder)
 
 
+def test_index_has_a_sequence_and_rebuilding_keeps_it():
+    index = json.load(open(os.path.join(ROOT, "index.json"), encoding="utf-8"))
+    assert isinstance(index["sequence"], int) and index["sequence"] >= 1
+    _, rebuilt = build_index.build()
+    assert rebuilt["sequence"] == index["sequence"], "an unchanged gallery keeps its sequence"
+
+
 def test_index_is_current_and_v1_compatible():
     assert build_index.main(["build_index.py", "--check"]) == 0
     index = json.load(open(os.path.join(ROOT, "index.json"), encoding="utf-8"))

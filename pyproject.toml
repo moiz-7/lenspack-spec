@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lenspack"
+version = "1.0.0"
+description = "Reference validator, packer and index verifier for the LensPack look format"
+readme = "PUBLISHING.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Bubble Labs" }]
+keywords = ["lenspack", "lut", "camera", "validator"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+# No runtime dependencies: validation and signature verification are pure Python.
+dependencies = []
+
+[project.optional-dependencies]
+# Signing the gallery index (CI only, tools/sign_index.py).
+sign = ["cryptography>=42"]
+test = ["pytest>=8", "jsonschema>=4"]
+
+[project.scripts]
+lenspack = "lenspack.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/moiz-7/lenspack-spec"
+Specification = "https://github.com/moiz-7/lenspack-spec/blob/main/SPEC.md"
+
+[tool.setuptools]
+packages = ["lenspack"]

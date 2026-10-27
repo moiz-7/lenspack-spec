@@ -19,54 +19,46 @@ its sha256 is stable across machines and the index only changes when a pack does
 
 Every entry keeps the version-1 fields (name, author, summary, fileName, url, sha256), so app
 builds that read index version 1 keep working: they install .cube entries and skip the rest.
+
+Index additions (SPEC §10): `sequence` rises by one whenever any entry changes (rollback
+protection for the signed index), `featured` comes from catalogue.json, `faces` says whether a
+pack has face content, and `localized` copies the manifest's translations. catalogue.json also
+holds `baseURL`, the host the archives are served from (the repository's raw URL until the
+gallery moves to its own domain). index.json.sig is written by tools/sign_index.py in CI.
 """
 import hashlib
-import io
 import json
 import os
 import sys
-import zipfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir))
-sys.path.insert(0, os.path.join(ROOT, "validator"))
-import validate_lenspack as validator  # noqa: E402
+sys.path.insert(0, ROOT)
+from lenspack import packing  # noqa: E402
+from lenspack import validator  # noqa: E402
 
-RAW_BASE = "https://raw.githubusercontent.com/moiz-7/lenspack-spec/main/"
 PACKS = os.path.join(ROOT, "packs")
 DIST = os.path.join(ROOT, "dist")
 INDEX = os.path.join(ROOT, "index.json")
-FIXED_TIME = (1980, 1, 1, 0, 0, 0)
+CATALOGUE = os.path.join(ROOT, "catalogue.json")
+FACE_FIELDS = ("overlays", "triggers", "facePaint", "meshTexture", "retouch", "background")
+
+
+def catalogue():
+    with open(CATALOGUE, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def quote(path):
     from urllib.parse import quote as q
-    return RAW_BASE + q(path)
+    return catalogue()["baseURL"] + q(path)
 
 
 def deterministic_zip(folder):
-    """Zip `folder` reproducibly. Refuses symlinks and anything the path rule refuses."""
-    limits = validator.load_limits()
-    files = []
-    for base, dirs, names in os.walk(folder):
-        dirs.sort()
-        for name in names:
-            full = os.path.join(base, name)
-            rel = os.path.relpath(full, folder).replace(os.sep, "/")
-            if name.startswith("."):
-                continue
-            if os.path.islink(full) or not validator.path_is_lexically_safe(rel, limits["paths"]["maxComponents"]):
-                raise SystemExit(f"refusing to pack {rel!r}")
-            files.append(rel)
-    buf = io.BytesIO()
-    with zipfile.ZipFile(buf, "w") as zf:
-        for rel in sorted(files):
-            info = zipfile.ZipInfo(rel, date_time=FIXED_TIME)
-            info.create_system = 3
-            info.external_attr = 0o100644 << 16
-            info.compress_type = zipfile.ZIP_DEFLATED
-            with open(os.path.join(folder, *rel.split("/")), "rb") as f:
-                zf.writestr(info, f.read(), compresslevel=9)
-    return buf.getvalue()
+    """Zip `folder` reproducibly (lenspack.packing). Refuses symlinks and unsafe paths."""
+    try:
+        return packing.deterministic_zip(folder)
+    except ValueError as e:
+        raise SystemExit(str(e))
 
 
 def build():
@@ -75,6 +67,7 @@ def build():
     entries = []
 
     existing = json.load(open(INDEX, encoding="utf-8")) if os.path.exists(INDEX) else {"packs": []}
+    featured = set(catalogue().get("featured", []))
     for entry in existing["packs"]:
         if entry.get("kind", "cube") != "cube":
             continue
@@ -105,6 +98,8 @@ def build():
             manifest = json.load(open(os.path.join(folder, "manifest.json"), encoding="utf-8"))
             if "license" not in manifest:
                 raise SystemExit(f"{name}: gallery packs need a 'license'")
+            if manifest["id"].startswith("@local/"):
+                raise SystemExit(f"{name}: @local packs are made on a device and are never published")
             expected = manifest["id"][1:].replace("/", ".") + ".lenspack"
             if name != expected:
                 raise SystemExit(f"{name}: folder must be named {expected}")
@@ -130,9 +125,22 @@ def build():
                 entry["requires"] = manifest["requires"]
             if "thumbnail" in manifest:
                 entry["thumbnail"] = quote(f"packs/{name}/{manifest['thumbnail']}")
+            if manifest["id"] in featured:
+                entry["featured"] = True
+            if any(k in manifest for k in FACE_FIELDS):
+                entry["faces"] = True
+            if manifest.get("localized"):
+                entry["localized"] = manifest["localized"]
             entries.append(entry)
 
-    index = {"version": 2, "packs": entries}
+    unknown = featured - {e.get("id") for e in entries}
+    if unknown:
+        raise SystemExit(f"catalogue.json features packs that are not in packs/: {sorted(unknown)}")
+    # The sequence rises exactly when the listing changes, so a rebuild of an unchanged gallery
+    # is byte-identical and `--check` stays meaningful.
+    previous = existing.get("sequence", 0)
+    unchanged = existing.get("packs") == entries
+    index = {"version": 2, "sequence": previous if unchanged and previous else previous + 1, "packs": entries}
     return outputs, index
 
 

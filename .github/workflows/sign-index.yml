@@ -1,0 +1,46 @@
+name: sign-index
+
+# Signs index.json on every change that reaches main, in the protected `release` environment —
+# the only place the signing key exists outside the owner's password manager (PUBLISHING.md).
+
+on:
+  push:
+    branches: [main]
+    paths: [index.json]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sign-index
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography==43.0.3
+      - name: index.json is current before it is signed
+        run: python tools/build_index.py --check
+      - name: Sign
+        env:
+          LENSPACK_INDEX_SIGNING_KEY: ${{ secrets.LENSPACK_INDEX_SIGNING_KEY }}
+        run: python tools/sign_index.py --key-id 2026-sign
+      - name: Verify against the pinned public keys
+        run: python -m lenspack verify-index index.json --keys index-keys.json --strict
+      - name: Commit index.json.sig
+        run: |
+          git config user.name "lenspack-signing[bot]"
+          git config user.email "lenspack-signing@users.noreply.github.com"
+          git add index.json.sig
+          if git diff --cached --quiet; then echo "signature unchanged"; exit 0; fi
+          git commit -m "Sign index.json (sequence $(python -c 'import json;print(json.load(open("index.json"))["sequence"])'))"
+          git push
